@@ -1,0 +1,25 @@
+! ============================================================
+! Phantoma (2811) - LAN 14 + 4 host
+! ============================================================
+enable
+configure terminal
+hostname Phantoma
+interface fa0/0
+ description Knights-Phantoma
+ ip address 192.213.16.86 255.255.255.252
+ no shutdown
+ exit
+interface fa0/1
+ description Phantoma-Switch12
+ ip address 192.213.16.1 255.255.255.224
+ no shutdown
+ exit
+interface fa1/0
+ description Phantoma-Shibuya
+ ip address 192.213.16.89 255.255.255.252
+ no shutdown
+ exit
+ip route 192.213.15.192 255.255.255.192 192.213.16.90
+ip route 0.0.0.0 0.0.0.0 192.213.16.85
+end
+write memory

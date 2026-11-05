@@ -1,0 +1,34 @@
+! ============================================================
+! Cyberia (2811) - router 1, satu-satunya yang terhubung ke Cloud
+! ============================================================
+enable
+configure terminal
+hostname Cyberia
+interface fa1/0
+ description Cyberia-Switch1
+ ip address 192.213.14.1 255.255.255.128
+ no shutdown
+ exit
+interface fa0/1
+ description Cyberia-Wired
+ ip address 192.213.16.57 255.255.255.252
+ no shutdown
+ exit
+! Link ke Cloud0 tidak diberi IP: Cloud hanya jalur keluar (NAT di GNS3),
+! tidak ada subnet pada mastersheet untuk segmen ini.
+interface fa0/0
+ no shutdown
+ exit
+ip route 192.213.0.0 255.255.248.0 192.213.16.58
+ip route 192.213.8.0 255.255.252.0 192.213.16.58
+ip route 192.213.12.0 255.255.254.0 192.213.16.58
+ip route 192.213.14.128 255.255.255.128 192.213.16.58
+ip route 192.213.15.0 255.255.255.0 192.213.16.58
+ip route 192.213.16.0 255.255.255.224 192.213.16.58
+ip route 192.213.16.32 255.255.255.240 192.213.16.58
+ip route 192.213.16.48 255.255.255.248 192.213.16.58
+ip route 192.213.16.60 255.255.255.252 192.213.16.58
+ip route 192.213.16.64 255.255.255.224 192.213.16.58
+! default route ke Cloud mengikuti modul pengenalan (bila perlu internet)
+end
+write memory

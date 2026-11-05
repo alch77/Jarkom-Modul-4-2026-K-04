@@ -1,0 +1,28 @@
+! ============================================================
+! Deus (2811) - LAN 77 + 21 host
+! ============================================================
+enable
+configure terminal
+hostname Deus
+interface fa0/0
+ description Tachibana-Deus
+ ip address 192.213.16.74 255.255.255.252
+ no shutdown
+ exit
+interface fa1/0
+ description Deus-Switch10
+ ip address 192.213.14.129 255.255.255.128
+ no shutdown
+ exit
+interface fa0/1
+ description Deus-Protocol7
+ ip address 192.213.16.77 255.255.255.252
+ no shutdown
+ exit
+ip route 192.213.15.128 255.255.255.128 192.213.16.78
+ip route 192.213.16.0 255.255.255.224 192.213.16.78
+ip route 192.213.16.48 255.255.255.248 192.213.16.78
+ip route 192.213.16.80 255.255.255.240 192.213.16.78
+ip route 0.0.0.0 0.0.0.0 192.213.16.73
+end
+write memory

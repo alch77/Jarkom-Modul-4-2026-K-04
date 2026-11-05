@@ -1,0 +1,44 @@
+! ============================================================
+! Wired (2811) - hub, penghubung Cyberia dengan semua cabang
+! ============================================================
+enable
+configure terminal
+hostname Wired
+interface fa0/0
+ description Cyberia-Wired
+ ip address 192.213.16.58 255.255.255.252
+ no shutdown
+ exit
+interface fa0/1
+ description Switch2
+ ip address 192.213.16.33 255.255.255.248
+ no shutdown
+ exit
+interface fa1/0
+ description Wired-Navi
+ ip address 192.213.16.61 255.255.255.252
+ no shutdown
+ exit
+interface fa1/1
+ description Wired-Tachibana
+ ip address 192.213.16.65 255.255.255.252
+ no shutdown
+ exit
+ip route 192.213.0.0 255.255.252.0 192.213.16.34
+ip route 192.213.4.0 255.255.252.0 192.213.16.36
+ip route 192.213.8.0 255.255.254.0 192.213.16.35
+ip route 192.213.10.0 255.255.254.0 192.213.16.66
+ip route 192.213.12.0 255.255.254.0 192.213.16.62
+ip route 192.213.14.128 255.255.255.128 192.213.16.66
+ip route 192.213.15.0 255.255.255.192 192.213.16.35
+ip route 192.213.15.64 255.255.255.192 192.213.16.62
+ip route 192.213.15.128 255.255.255.128 192.213.16.66
+ip route 192.213.16.0 255.255.255.224 192.213.16.66
+ip route 192.213.16.40 255.255.255.248 192.213.16.36
+ip route 192.213.16.48 255.255.255.248 192.213.16.66
+ip route 192.213.16.68 255.255.255.252 192.213.16.36
+ip route 192.213.16.72 255.255.255.248 192.213.16.66
+ip route 192.213.16.80 255.255.255.240 192.213.16.66
+ip route 0.0.0.0 0.0.0.0 192.213.16.57
+end
+write memory

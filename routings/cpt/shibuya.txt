@@ -1,0 +1,19 @@
+! ============================================================
+! Shibuya (2811) - LAN 57 + 4 host, ujung timur The Wired
+! ============================================================
+enable
+configure terminal
+hostname Shibuya
+interface fa0/0
+ description Phantoma-Shibuya
+ ip address 192.213.16.90 255.255.255.252
+ no shutdown
+ exit
+interface fa0/1
+ description Shibuya-Switch13
+ ip address 192.213.15.193 255.255.255.192
+ no shutdown
+ exit
+ip route 0.0.0.0 0.0.0.0 192.213.16.89
+end
+write memory

@@ -1,0 +1,29 @@
+! ============================================================
+! Navi (2811) - LAN 208, 57, dan 120/18/4 host
+! ============================================================
+enable
+configure terminal
+hostname Navi
+interface fa0/0
+ description Wired-Navi
+ ip address 192.213.16.62 255.255.255.252
+ no shutdown
+ exit
+interface fa0/1
+ description Navi-Switch6
+ ip address 192.213.12.1 255.255.255.0
+ no shutdown
+ exit
+interface fa1/0
+ description Navi-Switch7
+ ip address 192.213.15.65 255.255.255.192
+ no shutdown
+ exit
+interface fa1/1
+ description Navi-Switch8
+ ip address 192.213.13.1 255.255.255.0
+ no shutdown
+ exit
+ip route 0.0.0.0 0.0.0.0 192.213.16.61
+end
+write memory

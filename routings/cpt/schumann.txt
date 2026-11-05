@@ -1,0 +1,25 @@
+! ============================================================
+! Schumann (2811) - Akashic + Accela
+! ============================================================
+enable
+configure terminal
+hostname Schumann
+interface fa0/0
+ description Switch2
+ ip address 192.213.16.36 255.255.255.248
+ no shutdown
+ exit
+interface fa0/1
+ description Schumann-Akashic
+ ip address 192.213.16.41 255.255.255.248
+ no shutdown
+ exit
+interface fa1/0
+ description Schumann-Accela
+ ip address 192.213.16.69 255.255.255.252
+ no shutdown
+ exit
+ip route 192.213.4.0 255.255.252.0 192.213.16.70
+ip route 0.0.0.0 0.0.0.0 192.213.16.33
+end
+write memory

@@ -1,0 +1,19 @@
+! ============================================================
+! Accela (2811) - LAN 510 + 3 host
+! ============================================================
+enable
+configure terminal
+hostname Accela
+interface fa0/0
+ description Schumann-Accela
+ ip address 192.213.16.70 255.255.255.252
+ no shutdown
+ exit
+interface fa0/1
+ description Accela-Switch5
+ ip address 192.213.4.1 255.255.252.0
+ no shutdown
+ exit
+ip route 0.0.0.0 0.0.0.0 192.213.16.69
+end
+write memory

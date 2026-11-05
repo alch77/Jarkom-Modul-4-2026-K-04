@@ -1,0 +1,27 @@
+! ============================================================
+! Knights (2811) - Eiri
+! ============================================================
+enable
+configure terminal
+hostname Knights
+interface fa0/0
+ description Protocol7-Knights
+ ip address 192.213.16.82 255.255.255.252
+ no shutdown
+ exit
+interface fa1/0
+ description Knights-Eiri
+ ip address 192.213.16.49 255.255.255.248
+ no shutdown
+ exit
+interface fa0/1
+ description Knights-Phantoma
+ ip address 192.213.16.85 255.255.255.252
+ no shutdown
+ exit
+ip route 192.213.15.192 255.255.255.192 192.213.16.86
+ip route 192.213.16.0 255.255.255.224 192.213.16.86
+ip route 192.213.16.88 255.255.255.252 192.213.16.86
+ip route 0.0.0.0 0.0.0.0 192.213.16.81
+end
+write memory

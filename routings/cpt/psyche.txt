@@ -1,0 +1,19 @@
+! ============================================================
+! Psyche (2811) - LAN 700 + 180 host
+! ============================================================
+enable
+configure terminal
+hostname Psyche
+interface fa0/1
+ description Switch2
+ ip address 192.213.16.34 255.255.255.248
+ no shutdown
+ exit
+interface fa0/0
+ description Psyche-Switch3
+ ip address 192.213.0.1 255.255.252.0
+ no shutdown
+ exit
+ip route 0.0.0.0 0.0.0.0 192.213.16.33
+end
+write memory
