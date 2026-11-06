@@ -1,0 +1,22 @@
+# ============================================================
+# Cyberia - satu-satunya router yang terhubung ke NAT
+# ============================================================
+# isi dari Edit Network Configuration (/etc/network/interfaces)
+auto eth0
+iface eth0 inet dhcp
+  # NAT1
+
+auto eth1
+iface eth1 inet static
+  # Switch1
+  address 192.213.20.1
+  netmask 255.255.255.128
+
+auto eth2
+iface eth2 inet static
+  # Cyberia-Wired
+  address 192.213.20.145
+  netmask 255.255.255.252
+  up echo 1 > /proc/sys/net/ipv4/ip_forward
+  up iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.213.0.0/19
+  up ip route add 192.213.0.0/19 via 192.213.20.146

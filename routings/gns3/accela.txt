@@ -1,0 +1,18 @@
+# ============================================================
+# Accela - LAN Omnipresence dan Denpa (514 IP)
+# ============================================================
+# isi dari Edit Network Configuration (/etc/network/interfaces)
+auto eth0
+iface eth0 inet static
+  # Schumann-Accela
+  address 192.213.4.10
+  netmask 255.255.255.252
+
+auto eth1
+iface eth1 inet static
+  # Switch5
+  address 192.213.0.1
+  netmask 255.255.252.0
+  up echo 1 > /proc/sys/net/ipv4/ip_forward
+  up ip route add default via 192.213.4.9
+  up echo nameserver 192.168.122.1 > /etc/resolv.conf

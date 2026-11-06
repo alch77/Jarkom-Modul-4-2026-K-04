@@ -1,0 +1,25 @@
+# ============================================================
+# Knights - LAN Eiri, lanjut ke Phantoma
+# ============================================================
+# isi dari Edit Network Configuration (/etc/network/interfaces)
+auto eth0
+iface eth0 inet static
+  # Protocol7-Knights
+  address 192.213.9.66
+  netmask 255.255.255.252
+
+auto eth1
+iface eth1 inet static
+  # Eiri
+  address 192.213.8.129
+  netmask 255.255.255.248
+
+auto eth2
+iface eth2 inet static
+  # Knights-Phantoma
+  address 192.213.8.137
+  netmask 255.255.255.252
+  up echo 1 > /proc/sys/net/ipv4/ip_forward
+  up ip route add default via 192.213.9.65
+  up ip route add 192.213.8.0/25 via 192.213.8.138
+  up echo nameserver 192.168.122.1 > /etc/resolv.conf

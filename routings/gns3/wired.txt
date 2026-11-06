@@ -1,0 +1,35 @@
+# ============================================================
+# Wired - hub, penghubung Cyberia dengan semua cabang
+# ============================================================
+# isi dari Edit Network Configuration (/etc/network/interfaces)
+auto eth0
+iface eth0 inet static
+  # Cyberia-Wired
+  address 192.213.20.146
+  netmask 255.255.255.252
+
+auto eth1
+iface eth1 inet static
+  # Switch2
+  address 192.213.20.129
+  netmask 255.255.255.248
+
+auto eth2
+iface eth2 inet static
+  # Wired-Navi
+  address 192.213.20.149
+  netmask 255.255.255.252
+
+auto eth3
+iface eth3 inet static
+  # Wired-Tachibana
+  address 192.213.20.137
+  netmask 255.255.255.252
+  up echo 1 > /proc/sys/net/ipv4/ip_forward
+  up ip route add default via 192.213.20.145
+  up ip route add 192.213.16.0/22 via 192.213.20.130
+  up ip route add 192.213.24.0/22 via 192.213.20.131
+  up ip route add 192.213.0.0/21 via 192.213.20.132
+  up ip route add 192.213.28.0/22 via 192.213.20.150
+  up ip route add 192.213.8.0/21 via 192.213.20.138
+  up echo nameserver 192.168.122.1 > /etc/resolv.conf

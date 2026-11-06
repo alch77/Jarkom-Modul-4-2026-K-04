@@ -1,0 +1,30 @@
+# ============================================================
+# Navi - cabang timur, tiga LAN (Switch6, Switch7, Switch8)
+# ============================================================
+# isi dari Edit Network Configuration (/etc/network/interfaces)
+auto eth0
+iface eth0 inet static
+  # Wired-Navi
+  address 192.213.20.150
+  netmask 255.255.255.252
+
+auto eth1
+iface eth1 inet static
+  # Switch6
+  address 192.213.28.1
+  netmask 255.255.255.0
+
+auto eth2
+iface eth2 inet static
+  # Switch7
+  address 192.213.29.1
+  netmask 255.255.255.192
+
+auto eth3
+iface eth3 inet static
+  # Switch8
+  address 192.213.30.1
+  netmask 255.255.255.0
+  up echo 1 > /proc/sys/net/ipv4/ip_forward
+  up ip route add default via 192.213.20.149
+  up echo nameserver 192.168.122.1 > /etc/resolv.conf
