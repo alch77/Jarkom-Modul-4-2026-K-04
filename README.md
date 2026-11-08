@@ -75,6 +75,52 @@ Dan berikut adalah hasil VLSM Tree yang ada:
 
 ![Tree VLSM](Assets/Tree%20VLSM.png)
 
+### Revisi
+
+**Ping Omnipresence ke Mika**
+
+![Ping Omnipresence ke Mika](Assets/ping%20omnipresence%20ke%20mika.png)
+
+**Ping Mika ke Omnipresence**
+
+![Ping Mika ke Omnipresence](Assets/ping%20mika%20ke%20omnipresence.png)
+
+**Ping Karl ke Shibuya**
+
+![Ping Karl ke Shibuya](Assets/ping%20karl%20ke%20shibuya.png)
+
+**Ping Shibuya ke Karl**
+
+![Ping Shibuya ke Karl](Assets/ping%20shibuya%20ke%20karl.png)
+
+**Ping Cyberia ke Shibuya**
+
+![Ping Cyberia ke Shibuya](Assets/ping%20cyberia%20ke%20shibuya.png)
+
+**Ping Shibuya ke Cyberia**
+
+![Ping Shibuya ke Cyberia](Assets/ping%20shibuya%20ke%20cyberia.png)
+
+**Ping Psyche ke Protocol7**
+
+![Ping Psyche ke Protocol7](Assets/ping%20psyche%20ke%20protocol7.png)
+
+**Ping Protocol7 ke Psyche**
+
+![Ping Protocol7 ke Psyche](Assets/ping%20protocol7%20ke%20pysche.png)
+
+**Ping Yasuo ke Phantoma**
+
+![Ping Yasuo ke Phantoma](Assets/ping%20yasuo%20ke%20phantoma.png)
+
+**Ping Phantoma ke Yasuo**
+
+![Ping Phantoma ke Yasuo](Assets/ping%20phantoma%20ke%20yasuo.png)
+
+**Ping Cyberia ke 8.8.8.8**
+
+![Ping Cyberia ke 8.8.8.8](Assets/ping%208.8.8.8.png)
+
 ---
 
 ## Static Routing
